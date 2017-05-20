@@ -79,6 +79,7 @@
           <option value="delayed">delayed</option>
         </select>
         <input type="text" id="time" value="3000" style="display: none;">
+        <audio id="audio" src="http://link.hhtjim.com/163/97355.mp3"  preload="auto"></audio>
       </div>
 
     <script>
@@ -144,12 +145,8 @@
         var foot = tree.footer;
         var hold = 1;
 
-        var xxxxx = 1;
         canvas.click(function(e) {
-            xxxxx ++ ;
-            if(xxxxx == 2){
-             $('<audio id="audio" src="http://link.hhtjim.com/163/97355.mp3" autoplay="autoplay></audio>').append('body');
-            }
+            $('#audio').paly();
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
