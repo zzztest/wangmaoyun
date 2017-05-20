@@ -146,7 +146,33 @@
         var hold = 1;
 
         canvas.click(function(e) {
+            setTimeout(function(){
+                animate();
+            },70000);
             $('#audio').play();
+            setTimeout(function(){
+                $('#main').hide(8000);
+                $('#cont').show(8000);
+                $('body').animate({'opacity':0}, 1000).css('background-color', '#080705');
+                $('body').animate({'opacity':1}, 3000);
+                setTimeout(makesnake, 42000);
+                writeContent(true);
+                setTimeout(move, 15000);
+                setTimeout(move, 15000);
+                setTimeout("showTime()", 40000);
+                $('.secTime').animate({'opacity':1}, 5000);
+                var img_mao = $('.roundabout-moveable-item');
+                var number = 1;  
+                setInterval(function(){
+                    number ++ ;
+                    var i = number%5;
+                    img_mao.eq(i).trigger('click');
+                }, 5000);
+                setTimeout(function(){
+                    $('#cont').hide(20000);
+                    $('.last_img').animate({'opacity':1}, 20000);
+                }, 90000);
+            }, 125000);
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
@@ -247,32 +273,6 @@
         }));
 
         runAsync().start();
-        setTimeout(function(){
-            animate();
-        },70000)
-        setTimeout(function(){
-            $('#main').hide(8000);
-            $('#cont').show(8000);
-            $('body').animate({'opacity':0}, 1000).css('background-color', '#080705');
-            $('body').animate({'opacity':1}, 3000);
-            setTimeout(makesnake, 42000);
-            writeContent(true);
-            setTimeout(move, 15000);
-            setTimeout(move, 15000);
-            setTimeout("showTime()", 40000);
-            $('.secTime').animate({'opacity':1}, 5000);
-            var img_mao = $('.roundabout-moveable-item');
-            var number = 1;  
-            setInterval(function(){
-            	number ++ ;
-            	var i = number%5;
-            	img_mao.eq(i).trigger('click');
-            }, 5000);
-            setTimeout(function(){
-                $('#cont').hide(20000);
-                $('.last_img').animate({'opacity':1}, 20000);
-            }, 90000);
-        }, 125000);
     })();
     </script>
     <link rel="stylesheet" href="./jscss/style.css" type="text/css" media="all">
