@@ -18,39 +18,55 @@
         <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
         <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
         <script type="text/javascript" src="./Love_files/vivus.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./jscss/makesnake.js"></script>
+
     </head>
+    <style>
+        .anim_fade img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     <body>
+        <div class="anim_fade  last_img" style="opacity: 0;">
+            <div id="header" style="opacity:0.85">
+                <div id="title">
+                    Together Forever
+                </div>
+            </div>
+            <img src="./backgroundImg/img3.jpg" alt="" style="height: auto;" />
+        </div>
         <div id="main">
             <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器哟~</div>
             <div id="wrap">
                 <div id="svg" style="position: absolute;left: 48px;top: 33px;width: 643px; height: 500px;"></div>
                <div id="text">
                     <div id="code">                 
-                    <span class="say">我的爱人，我会牵着你的手，走到满头白发的那一天，</span><br>
-                    <span class="say">我会守护你生命里的精彩，并陪伴你一路精彩下去。</span><br>
-                    <span class="say">你的幸福快乐，是我一生的追求。</span><br>
-                    <span class="say">我会每一天带着笑脸，和你说早安，</span><br>
-                     <span class="say">我会每一晚与你道声晚安再入梦乡，</span><br>
-                    <span class="say">我会带你去所有你想去的地方，</span><br>
-                    <span class="say">陪你闹看你笑</span><br>
-                    <span class="say">历经你生命中所有的点点滴滴。</span><br>
-                    <span class="say">我期待这一生与你一起走过，</span><br>
-                    <span class="say">我期待与你慢慢变老</span><br>
-                    <span class="say">等我们老到哪儿也去不了，</span><br>
-                    <span class="say">还能满载着一生的幸福快乐 ！</span><br>
+                    <span class="say">我想牵着你的手，走到满头白发的那一天，</span><br>
+                    <span class="say">我想守护你生命里的精彩，并陪伴你一路精彩下去.</span><br>
+                    <span class="say">我想每一天带着笑脸，和你说早安，</span><br>
+                    <span class="say">我想每一晚与你道声晚安再入梦乡，</span><br>
+                    <span class="say">我想带你去所有你想去的地方，</span><br>
+                    <span class="say">我想陪你闹看你笑,</span><br>
+                    <span class="say">我想历经你生命中所有的分秒.</span><br>
+                    <span class="say">你的幸福快乐，是我一生的追求.</span><br>
                     <br>
                     <span class="say">我会为我们的未来撑起一片天空，</span><br>
                      <span class="say">为我们的将来担负起一生的责任，</span><br>
-                      <span class="say">愿意为你去做每一件能让你开心快乐的事。</span><br>
-                       <span class="say">所有我们经历的点点滴滴，</span><br>
-                        <span class="say">都是我们一辈子最美的回忆。</span><br>
-                         <span class="say">我愿意爱你直到老去！</span><br>
+                      <span class="say">愿意为你一分笑容去花十分的努力.</span><br>
+                       <span class="say">所有我们经历的春夏秋冬，</span><br>
+                        <span class="say">都是我这一辈子最美的记忆.</span><br>
+                         <span class="say">我愿意爱你直到地老天荒...</span><br>
                    <br>
-                    <span class="say"><span class="space"></span> -- Yours, xxx.</span>
+                    <span class="say"><span class="space"></span> ---- 蒋</span>
                     </div>
                 </div>
                 <div id="clock-box">
-                    <a href="http://blog.csdn.net/wuxia2001" target="_blank">xxx</a> 与 <a href="http://blog.csdn.net/wuxia2001" target="_blank">xxx</a> 在一起的
+                		离第一次与妳的相遇
                         <div id="clock"></div>
                 </div>
                 <canvas id="canvas" width="1100" height="680" style="position: absolute;z-index: 1111"></canvas>
@@ -59,10 +75,10 @@
         <div>
         <select id="options" style="display: none;">
           <option value="oneByOne">oneByOne</option>
-          <option value="delayed">delayed</option>
           <option value="sync">sync</option>
+          <option value="delayed">delayed</option>
         </select>
-        <input type="text" id="time" value="2000" style="display: none;">
+        <input type="text" id="time" value="3000" style="display: none;">
       </div>
 
     <script>
@@ -128,8 +144,12 @@
         var foot = tree.footer;
         var hold = 1;
 
+        var xxxxx = 1;
         canvas.click(function(e) {
-            $('<audio id="audio" src="love.mp3" autoplay="autoplay"></audio>').append('body');
+            xxxxx ++ ;
+            if(xxxxx == 2){
+             $('<audio id="audio" src="http://link.hhtjim.com/163/97355.mp3" autoplay="autoplay loop="loop"></audio>').append('body');
+            }
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
@@ -204,7 +224,7 @@
 
         var textAnimate = eval(Jscex.compile("async", function () {
             var together = new Date();
-            together.setFullYear(2010, 5, 8);
+            together.setFullYear(2002, 9, 1);
             together.setHours(20);
             together.setMinutes(20);
             together.setSeconds(0);
@@ -243,19 +263,21 @@
             setTimeout(move, 15000);
             setTimeout(move, 15000);
             setTimeout("showTime()", 40000);
-        }, 120000);
+            $('.secTime').animate({'opacity':1}, 5000);
+            var img_mao = $('.roundabout-moveable-item');
+            var number = 1;  
+            setInterval(function(){
+            	number ++ ;
+            	var i = number%5;
+            	img_mao.eq(i).trigger('click');
+            }, 5000);
+            setTimeout(function(){
+                $('#cont').hide(20000);
+                $('.last_img').animate({'opacity':1}, 20000);
+            }, 90000);
+        }, 125000);
     })();
     </script>
-    <style>
-        .anim_fade img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
     <link rel="stylesheet" href="./jscss/style.css" type="text/css" media="all">
         <!--导库-->
         <!-- 图片幻灯片效果-->
@@ -266,18 +288,13 @@
         <script type="text/javascript" src="./jscss/snowstorm.js"></script>
         <!-- 打字机效果-->       
         <!-- 画爱心-->
-        <script type="text/javascript" src="./jscss/ga.js" async=""></script>
         <script type="text/javascript" src="./jscss/heart.js"></script>
         <!-- 移动div-->
         <script type="text/javascript" src="./jscss/move.js"></script>
         <!-- 显示时间 -->
         <script type="text/javascript" src="./jscss/time.js"></script>
-        <!-- 设置文字跟随鼠标 -->
-        <script type="text/javascript" src="./jscss/makesnake.js"></script>
 
         <script type="text/javascript" src="./jscss/text.js"></script>
-
-        
 
         <!-- #container -->
         <div id="cont" style="display: none;" style="background-color:#6f599c;">
@@ -288,7 +305,7 @@
         <!--#Header-->
         <div id="header" style="opacity:0.85">
             <div id="title">
-                I Love You Forever
+                Love Of All One's Life
             </div>
         </div>
 
@@ -296,22 +313,17 @@
         <div id="myContent">
                 <span id="blink" style="display: none;">_</span></div>
         <div id="contentToWrite" style="display:none">
-            一时间不知道从哪说起,         <br>
-                真爱来了，我们要好好把    <br>
                 一时间不知道从哪说起,         <br>
                 真爱来了，我们要好好把握。不管面临多大的压力，<br>
                 不管前面的路如何崎岖.<br>
-                不管经历过什么,我仍坚信最浪漫的事就是和<br>
-                你一起慢慢变老.<br>
-                还记得否,曾经的点点滴滴，从相识到现在，<br>
-                从冷漠到关心,从谢绝到依赖，从生疏到相爱,<br>
+                我仍愿陪你一起慢慢老去，永不相弃.<br>
+                还记得吗,儿时的点点滴滴，从相识到现在，<br>
                 一切似乎都是那么遥远,又似乎那么触手可及.<br>
-                正如某人说的那样,但求岁月静好,现世安稳.<br>
                 一生守候不是一句简单而苍白的山盟海誓，<br>
                 而是无数个平淡的日子同舟共济，相濡以沫.<br>
                 相信右下角的计时器,将永远继续下去,直至数据溢出.<br>
                 <br>
-                -----------------------Just for You, Yue<br>
+                ----------------------Just for You, meng<br>
         </div>
         <script type="text/javascript">
             //writeContent(true);
@@ -338,7 +350,7 @@
             <img src="./backgroundImg/img2.jpeg" alt="" />
         </div>
         <!-- #time -->
-        <div id="time">
+        <div id="time" class="secTime" style="opacity: 0;margin-top: 30px;">
             <span id="show"></span>
             <script type="text/javascript">
                 //setTimeout("showTime()", 40000);
