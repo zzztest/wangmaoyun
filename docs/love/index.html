@@ -78,7 +78,7 @@
           <option value="sync">sync</option>
           <option value="delayed">delayed</option>
         </select>
-        <input type="text" id="time" value="3000" style="display: none;">
+        <input type="text" id="time" value="2500" style="display: none;">
         <audio id="audio" src="http://link.hhtjim.com/163/97355.mp3"  preload="auto"></audio>
       </div>
 
@@ -146,10 +146,10 @@
         var hold = 1;
 
         canvas.click(function(e) {
+            $('#audio')[0].play();
             setTimeout(function(){
                 animate();
             },70000);
-            $('#audio')[0].play();
             setTimeout(function(){
                 $('#main').hide(8000);
                 $('#cont').show(8000);
@@ -171,8 +171,9 @@
                 setTimeout(function(){
                     $('#cont').hide(20000);
                     $('.last_img').animate({'opacity':1}, 20000);
-                }, 90000);
-            }, 125000);
+                }, 77000);
+            }, 148000);
+            setTimeout(function(){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
@@ -182,6 +183,7 @@
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
             }
+            }, 1400);
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
