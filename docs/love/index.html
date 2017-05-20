@@ -146,9 +146,9 @@
         var hold = 1;
 
         canvas.click(function(e) {
+            $('#audio')[0].play();
             canvas.animate({'width': '105%','height': '105%'}, 300);
             canvas.animate({'width': '100%','height': '100%'}, 700);
-            $('#audio')[0].play();
             setTimeout(function(){
                 animate();
             },70000);
@@ -185,7 +185,7 @@
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
             }
-            }, 1800);
+            }, 450);
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
