@@ -146,6 +146,8 @@
         var hold = 1;
 
         canvas.click(function(e) {
+            canvas.animate({'width': '105%','height': '105%'}, 300);
+            canvas.animate({'width': '100%','height': '100%'}, 700);
             $('#audio')[0].play();
             setTimeout(function(){
                 animate();
@@ -167,12 +169,12 @@
                     number ++ ;
                     var i = number%5;
                     img_mao.eq(i).trigger('click');
-                }, 5000);
+                }, 8000);
                 setTimeout(function(){
-                    $('#cont').hide(20000);
-                    $('.last_img').animate({'opacity':1}, 20000);
-                }, 68000);
-            }, 150000);
+                    $('#cont').hide(18000);
+                    $('.last_img').animate({'opacity':1}, 18000);
+                }, 66000);
+            }, 152000);
             setTimeout(function(){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
@@ -183,7 +185,7 @@
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
             }
-            }, 1400);
+            }, 1800);
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
